@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "GET-PREFERENCES-API": {
+            "matchCondition": {
+                "route": "/preferences/{id}",
+                "methods": [
+                    "GET"
+                ]
+            },
+            "backendUri": "https://chiverton365-preferences-westeurope.azurewebsites.net/api/preferences/{id}"
+        },
+        "SAVE-PREFERENCES-API": {
+            "matchCondition": {
+                "route": "/preferences",
+                "methods": [
+                    "POST"
+                ]
+            },
+            "backendUri": "https://chiverton365-preferences-westeurope.azurewebsites.net/api/preferences"
+        },
+        "Hello-API": {
+            "matchCondition": {
+                "route": "/hello",
+                "methods": [
+                    "GET"
+                ]
+            },
+            "backendUri": "https://chiverton365-preferences-westeurope.azurewebsites.net/api/hello"
+        }
+    }
+}

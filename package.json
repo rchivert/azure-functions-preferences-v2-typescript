@@ -1,0 +1,17 @@
+{
+  "name": "preferences-v3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@azure/cosmos": "^2.0.4",
+    "@types/node": "^10.12.2",
+    "performance-now": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

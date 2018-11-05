@@ -1,0 +1,433 @@
+//    LOCAL COSMOS DB API tests
+
+
+###  get preferences
+GET http://localhost:7071/api/preferences/user1@domain.com
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+x-ms-version: 2018-06-18
+Proxy-Trace-Enabled: true
+
+###  save preferences
+POST http://localhost:7071/api/preferences
+content-type: application/json
+Cache-Control: no-cache
+Pragma: no-cache
+x-ms-version: 2018-06-18
+Proxy-Trace-Enabled: true
+
+  {
+  	"id":"user1@domain.com",
+  	"links":[
+  		{
+  			"title":"title1",
+  			"url":"url1"
+  		},
+  		{
+  		  	"title":"title2",
+  			"url":"url2"	
+  		}
+  		],
+        "color": "blue"
+  }
+
+###  save preferences
+GET http://localhost:7071/api/save-preferences
+content-type: application/json
+Cache-Control: no-cache
+Pragma: no-cache
+x-ms-version: 2018-06-18
+Proxy-Trace-Enabled: true
+
+
+###  hello
+GET http://localhost:7071/api/hello
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+Proxy-Trace-Enabled: true
+
+
+
+//  PROD Tests
+
+
+*****************************************   traffic manager  *****************************************
+
+
+###  traffic manager: ping (anonymous)
+GET https://chiverton365-preferences.trafficmanager.net/
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  traffic manager: hello (anonymous)
+GET https://chiverton365-preferences.trafficmanager.net/hello
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  traffic manager: hello (anonymous)
+GET https://chiverton365-preferences.trafficmanager.net/api/hello
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  traffic manager: get user prefs (authenticated)
+GET https://chiverton365-preferences.trafficmanager.net/preferences/user2@domain.com
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  traffic manager: get user prefs (authenticated)
+GET https://chiverton365-preferences.trafficmanager.net/api/preferences/user2@domain.com
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  traffic manager: save user prefs  (authenticated)
+POST https://chiverton365-preferences.trafficmanager.net/preferences
+content-type: application/json
+Cache-Control: no-cache
+Pragma: no-cache
+
+  {
+  	"id":"user2@domain.com",
+  	"links":[
+  		{
+  			"title":"title1",
+  			"url":"url1"
+  		},
+  		{
+  		  	"title":"title2",
+  			"url":"url2"	
+  		}
+  		],
+        "location": "US-EAST"
+  }
+
+###  traffic manager: save user prefs  (authenticated)
+POST https://chiverton365-preferences.trafficmanager.net/api/preferences
+content-type: application/json
+Cache-Control: no-cache
+Pragma: no-cache
+
+  {
+  	"id":"user2@domain.com",
+  	"links":[
+  		{
+  			"title":"title1",
+  			"url":"url1"
+  		},
+  		{
+  		  	"title":"title2",
+  			"url":"url2"	
+  		}
+  		],
+        "location": "US-EAST"
+  }
+
+
+*****************************************   japan east *****************************************
+
+###  japaneast: ping (anonymous)
+GET https://chiverton365-hello-japaneast.azurewebsites.net/
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+
+###  japaneast: hello (anonymous)
+GET https://chiverton365-preferences-japaneast.azurewebsites.net/hello
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  japaneast: hello (anonymous)
+GET https://chiverton365-preferences-japaneast.azurewebsites.net/api/hello
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  japaneast: get user prefs (authenticated)
+GET https://chiverton365-preferences-japaneast.azurewebsites.net/api/preferences/user2@domain.com
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  japaneast: get user prefs (authenticated)
+GET https://chiverton365-preferences-japaneast.azurewebsites.net/preferences/user2@domain.com
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  japaneast: save user prefs  (authenticated)
+POST https://chiverton365-preferences-japaneast.azurewebsites.net/api/preferences
+content-type: application/json
+Cache-Control: no-cache
+Pragma: no-cache
+
+  {
+  	"id":"user2@domain.com",
+  	"links":[
+  		{
+  			"title":"title1",
+  			"url":"url1"
+  		},
+  		{
+  		  	"title":"title2",
+  			"url":"url2"	
+  		}
+  		],
+        "location": "US-EAST"
+  }
+
+###  japaneast: save user prefs  (authenticated)
+POST https://chiverton365-preferences-japaneast.azurewebsites.net/preferences
+content-type: application/json
+Cache-Control: no-cache
+Pragma: no-cache
+
+  {
+  	"id":"user2@domain.com",
+  	"links":[
+  		{
+  			"title":"title1",
+  			"url":"url1"
+  		},
+  		{
+  		  	"title":"title2",
+  			"url":"url2"	
+  		}
+  		],
+        "location": "US-EAST"
+  }
+
+*****************************************   eastus  *****************************************
+
+###  eastus: ping (anonymous)
+GET https://chiverton365-preferences3-eastus.azurewebsites.net/
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  eastus: hello (anonymous)
+GET https://chiverton365-preferences3-eastus.azurewebsites.net/hello
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  eastus: hello (anonymous)
+GET https://chiverton365-preferences3-eastus.azurewebsites.net/api/hello
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  eastus: get user prefs (authenticated)
+GET https://chiverton365-preferences3-eastus.azurewebsites.net/preferences/user2@domain.com
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  eastus: get user prefs (authenticated)
+GET https://chiverton365-preferences3-eastus.azurewebsites.net/api/preferences/user2@domain.com
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+x-ms-version: 2018-06-18
+
+###  eastus: save user prefs  (authenticated)
+POST https://chiverton365-preferences3-eastus.azurewebsites.net/preferences
+content-type: application/json
+Cache-Control: no-cache
+Pragma: no-cache
+
+  {
+  	"id":"user2@domain.com",
+  	"links":[
+  		{
+  			"title":"title1",
+  			"url":"url1"
+  		},
+  		{
+  		  	"title":"title2",
+  			"url":"url2"	
+  		}
+  		],
+        "location": "US-EAST"
+  }
+
+###  eastus: save user prefs  (authenticated)
+
+POST https://chiverton365-preferences3-eastus.azurewebsites.net/api/preferences
+content-type: application/json
+Cache-Control: no-cache
+Pragma: no-cache
+
+  {
+  	"id":"user2@domain.com",
+  	"links":[
+  		{
+  			"title":"title1",
+  			"url":"url1"
+  		},
+  		{
+  		  	"title":"title2",
+  			"url":"url2"	
+  		}
+  		],
+        "location": "US-EAST"
+  }
+
+
+*****************************************   westus  *****************************************
+
+###  westus: ping (anonymous)
+GET https://chiverton365-preferences-westus.azurewebsites.net/
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  westus: hello (anonymous)
+GET https://chiverton365-preferences-westus.azurewebsites.net/hello
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  westus: hello (anonymous)
+GET https://chiverton365-preferences-westus.azurewebsites.net/api/hello
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  westus: get user prefs (authenticated)
+GET https://chiverton365-preferences-westus.azurewebsites.net/preferences/user2@domain.com
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  westus: get user prefs (authenticated)
+GET https://chiverton365-preferences-westus.azurewebsites.net/api/preferences/user2@domain.com
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  westus: save user prefs  (authenticated)
+POST https://chiverton365-preferences-westus.azurewebsites.net/preferences
+content-type: application/json
+Cache-Control: no-cache
+Pragma: no-cache
+
+  {
+  	"id":"user2@domain.com",
+  	"links":[
+  		{
+  			"title":"title1",
+  			"url":"url1"
+  		},
+  		{
+  		  	"title":"title2",
+  			"url":"url2"	
+  		}
+  		],
+        "location": "US-EAST"
+  }
+
+###  westus: save user prefs  (authenticated)
+
+POST https://chiverton365-preferences-westus.azurewebsites.net/api/preferences
+content-type: application/json
+Cache-Control: no-cache
+Pragma: no-cache
+
+  {
+  	"id":"user2@domain.com",
+  	"links":[
+  		{
+  			"title":"title1",
+  			"url":"url1"
+  		},
+  		{
+  		  	"title":"title2",
+  			"url":"url2"	
+  		}
+  		],
+        "location": "US-EAST"
+  }
+
+
+  *****************************************   westeurope  *****************************************
+
+###  westeurope: ping (anonymous)
+GET https://chiverton365-preferences-westeurope.azurewebsites.net/
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  westeurope: hello (anonymous)
+GET https://chiverton365-preferences-westeurope.azurewebsites.net/hello
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  westeurope: hello (anonymous)
+GET https://chiverton365-preferences-westeurope.azurewebsites.net/api/hello
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  westeurope: get user prefs (authenticated)
+GET https://chiverton365-preferences-westeurope.azurewebsites.net/preferences/user2@domain.com
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  westeurope: get user prefs (authenticated)
+GET https://chiverton365-preferences-westeurope.azurewebsites.net/api/preferences/user2@domain.com
+Content-Type: application/json; charset=utf-8
+Cache-Control: no-cache
+Pragma: no-cache
+
+###  westeurope: save user prefs  (authenticated)
+POST https://chiverton365-preferences-westeurope.azurewebsites.net/preferences
+content-type: application/json
+Cache-Control: no-cache
+Pragma: no-cache
+
+  {
+  	"id":"user2@domain.com",
+  	"links":[
+  		{
+  			"title":"title1",
+  			"url":"url1"
+  		},
+  		{
+  		  	"title":"title2",
+  			"url":"url2"	
+  		}
+  		],
+        "location": "US-EAST"
+  }
+
+###  westeurope: save user prefs  (authenticated)
+
+POST https://chiverton365-preferences-westeurope.azurewebsites.net/api/preferences
+content-type: application/json
+Cache-Control: no-cache
+Pragma: no-cache
+
+  {
+  	"id":"user2@domain.com",
+  	"links":[
+  		{
+  			"title":"title1",
+  			"url":"url1"
+  		},
+  		{
+  		  	"title":"title2",
+  			"url":"url2"	
+  		}
+  		],
+        "location": "US-EAST"
+  }
